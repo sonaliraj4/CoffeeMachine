@@ -11,9 +11,7 @@ public class CoffeeMachine {
 
 	private Map<String, Long> ingredients = new HashMap<String, Long>(); // Available ingredients and their quantity
 	private final Map<String, Long> maxIngredients = new HashMap<String, Long>(); // Ingredients and their max quantity
-	private Map<String, Map<String, Long>> beverages = new HashMap<String, Map<String, Long>>(); // Beverages and their
-																									// required
-																									// ingredients
+	private Map<String, Map<String, Long>> beverages = new HashMap<String, Map<String, Long>>(); // Beverages and their required ingredients
 
 	public CoffeeMachine(Map<String, Long> ingredients, Map<String, Map<String, Long>> beverages) {
 
@@ -54,8 +52,7 @@ public class CoffeeMachine {
 
 				refill(ingredient); // Refilling ingredient which is not sufficient
 
-				if (ingredients.get(ingredient) < item.getValue()) { // The ingredient is not sufficient even after
-																		// refilling
+				if (ingredients.get(ingredient) < item.getValue()) { // The ingredient is not sufficient even after refilling
 					return false; // Order can not be processed
 				}
 
@@ -80,8 +77,7 @@ public class CoffeeMachine {
 				for (Entry<String, Long> item : mp.entrySet()) {
 
 					String ingredient = item.getKey();
-					ingredients.put(ingredient, ingredients.get(ingredient) - item.getValue()); // Utilize each required
-																								// ingredient
+					ingredients.put(ingredient, ingredients.get(ingredient) - item.getValue()); // Utilize each required ingredient
 
 					if (ingredients.get(ingredient) <= threshold) { //
 						System.out.println(".......... " + ingredient + " is running low!");
